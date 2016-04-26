@@ -1,5 +1,7 @@
 RottenMangoes::Application.routes.draw do
 
+  resources :posters
+
   get "reviews/new"
   get "reviews/create"
   get "sessions/new"
