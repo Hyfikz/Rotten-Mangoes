@@ -1,0 +1,28 @@
+<hr>
+
+<% @movies.each do |movie| %>
+
+  <div class="row text-center">
+    <div class="thumbnail">
+
+      <% if movie.poster_image_url %>
+      <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
+      <% else %>
+      <%= link_to image_tag(movie.image), movie_path(movie) %>
+      <% end %>
+
+      <div class="caption">
+
+        <h2><%= link_to movie.title, movie_path(movie) %> | <%= movie.review_average %>/10</h2>
+        <h3><%= formatted_date(movie.release_date) %></h3>
+        <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
+        <p><%= movie.description %></p>
+
+      </div>
+
+      </div>
+    </div>
+
+  <hr>
+
+<% end %>
