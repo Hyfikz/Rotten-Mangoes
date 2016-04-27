@@ -3,6 +3,12 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+
+  def search
+   @movies = Movie.where("title LIKE ?", "%#{params[:q]}%")
+   movies_search_path(@movies)
+ end
+
   def show
     @movie = Movie.find(params[:id])
   end

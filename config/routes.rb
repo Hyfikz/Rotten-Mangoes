@@ -1,27 +1,24 @@
 RottenMangoes::Application.routes.draw do
 
-  resources :posters
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  get "reviews/new"
-  get "reviews/create"
-  get "sessions/new"
-  get "sessions/create"
-  get "users/new"
-  get "users/create"
-
-  resources :movies
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  get '/movies/search', to: 'movies#search'
 
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :show]
+
+  resource :session, only: [:new, :create, :destroy]
   root to: 'movies#index'
 
+  namespace :admin do
+    resources :users
+  end
 
+  resource :profiles, only: [:edit, :update, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
