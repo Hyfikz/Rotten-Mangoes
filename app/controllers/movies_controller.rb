@@ -4,14 +4,14 @@ class MoviesController < ApplicationController
   end
 
   def search
-   @movies = Movie.where("title LIKE ?", "%#{params[:q]}%")
-   movies_search_path(@movies)
- end
+    @movies = Movie.where("title LIKE ? or director LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+    movies_search_path(@movies)
+  end
 
   def show
     @movie = Movie.find(params[:id])
   end
-
+ 
   def new
     @movie = Movie.new
   end
