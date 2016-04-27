@@ -25,14 +25,6 @@ ActiveRecord::Schema.define(version: 20160427003032) do
     t.string   "image"
   end
 
-  create_table "posters", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "reviews", force: true do |t|
     t.integer  "user_id"
     t.integer  "movie_id"
