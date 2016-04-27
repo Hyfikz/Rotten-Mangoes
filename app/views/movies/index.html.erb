@@ -1,13 +1,4 @@
 <h1>Rotten Mangoes</h1>
     <%= render 'search_bar' %>
 <%= link_to "Submit a movie!", new_movie_path %>
-<hr>
-<% @movies.each do |movie| %>
-  <%= link_to image_tag(movie.image.thumb), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %></h2>
-  <%= movie.review_average %>/10
-  <h3><%= formatted_date(movie.release_date) %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
-  <hr>
-<% end %>
+    <%= render 'movies' %>
