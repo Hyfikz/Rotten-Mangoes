@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'kaminari'
+gem 'bootstrap-sass'
+gem 'imdb', '~> 0.8'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

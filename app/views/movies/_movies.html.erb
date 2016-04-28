@@ -6,9 +6,9 @@
     <div class="thumbnail">
 
       <% if movie.poster_image_url %>
-          <%= link_to image_tag(movie.image.thumb), movie_path(movie) %>
+          <%= link_to image_tag(movie.poster_image_url, style: "max-height: 350px"), movie_path(movie) %>
       <% else %>
-        <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
+        <%= link_to image_tag(movie.image.thumb), movie_path(movie) %>
       <% end %>
 
       <div class="caption">
