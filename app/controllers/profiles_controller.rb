@@ -5,7 +5,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @users = User.find(params[:id])
+    if params[:id]
+      @users = User.find(params[:id])
+    elsif
+      @user = current_user
+    end
   end
 
   def update

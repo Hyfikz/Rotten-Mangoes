@@ -17,8 +17,9 @@ RottenMangoes::Application.routes.draw do
   namespace :admin do
     resources :users
   end
-
-  resource :profiles, only: [:edit, :update, :show]
+  #turn profiles in resources so you can search by ID, because as it is now, it will need to be @user = current_user
+  resource :profile, only: [:edit, :update, :show]
+  resources :profiles, only: [:show, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
